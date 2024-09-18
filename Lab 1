@@ -1,0 +1,58 @@
+<?php
+class Person {
+    public $firstName;
+    public $lastName;
+    private $age;
+
+    public function __construct($firstName, $lastName, $age) {
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
+        $this->setAge($age);
+    }
+
+    public function getFullName() {
+        return $this->firstName . ' ' . $this->lastName;
+    }
+
+    public function setAge($age) {
+        if ($age > 0) {
+            $this->age = $age;
+        } else {
+            echo "Age must be a positive number.";
+        }
+    }
+
+    public function getAge() {
+        return $this->age;
+    }
+}
+
+class Car {
+    public $make;
+    public $model;
+    protected $year;
+
+    public function __construct($make, $model, $year) {
+        $this->make = $make;
+        $this->model = $model;
+        $this->year = $year;
+    }
+
+    public function getCarInfo() {
+        return "Make: " . $this->make . ", Model: " . $this->model . ", Year: " . $this->year;
+    }
+}
+
+$person = new Person("Mark Emmanuel", "Emplica", 19);
+
+$car = new Car("Honda", "civic", 2022);
+
+echo "Full Name: " . $person->getFullName() . "\n";
+echo "Age: " . $person->getAge() . "\n";
+
+$person->setAge(20);
+echo "Updated Age: " . $person->getAge() . "\n";
+
+echo "Car Info: " . $car->getCarInfo() . "\n";
+
+?>
